@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Casa Inteligente</title>
+		<style>
+			.interItems {
+				text-align: center;
+				color: #FFFFFF;
+			}
+			.Button {
+				width: 80px;
+				height: 40px;
+				transition: ease 0.2s;
+    			cursor: pointer;
+    			background: #460f75;
+    			color: #FFFFFF;
+    			border-bottom-right-radius: 10px;
+    			border-bottom-left-radius: 10px;
+    			border-top-left-radius: 10px;
+    			border-top-right-radius: 10px;
+			}			
+		</style>
+		<style type="text/css">
+      		button[class='Button']:hover {
+    			filter: brightness(70%);
+			}					
+			button[class='Button']:active {
+    			transform: scale(0.9);
+			}
+			input[type="submit"]:hover {
+    			filter: brightness(70%);
+			}					
+			input[type="submit"]:active {
+    			transform: scale(0.9);
+			}
+			input[type="submit"] {
+    			background-color: #460f75;
+    			color: #FFFFFF;
+    			transition: ease 0.2s;
+    			cursor: pointer;
+    			border-bottom-right-radius: 25px;
+    			border-bottom-left-radius: 25px;
+    			border-top-left-radius: 25px;
+    			border-top-right-radius: 25px;
+			}
+			input[type="text"] {
+				width: 5%;
+    			background-color: #ffffff;
+    			transition: ease 0.2s;
+    			cursor: pointer;
+    			border-bottom-right-radius: 25px;
+    			border-bottom-left-radius: 25px;
+    			border-top-left-radius: 25px;
+    			border-top-right-radius: 25px;
+				text-align: center;
+			}				
+    	</style>
+	</head>
+	<body bgcolor="#006565">
+		<div class='interItems'>
+			<h1>Controle com Arduino usando Python</h1>
+			<form action="/" style="padding: 20px" method="POST">
+        		<p>
+					Servomotor <input type="text" name="content" id="content">
+					<input type="submit" value="Alterar" id="button">
+				</p>
+				<p>
+					Temperatura <input type="text" name="content" id="content">
+				</p>
+    		</form>
+			<div class='interactiveButtons'>
+				<form action='#' method='POST'>
+					<button class='Button' onclick="ledOn()" name="on" value="on">On</button>
+					<button class='Button' onclick="ledOff()" name="off" value="off">Off</button> 
+					<button class='Button' onclick="Blink()" name="blink" value="blink">Blink</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
