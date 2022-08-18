@@ -1,83 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<meta charset="UTF-8">
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Casa Inteligente</title>
-		<style>
-			.interItems {
-				text-align: center;
-				color: #FFFFFF;
-			}
-			.Button {
-				width: 80px;
-				height: 40px;
-				transition: ease 0.2s;
-    			cursor: pointer;
-    			background: #460f75;
-    			color: #FFFFFF;
-    			border-bottom-right-radius: 10px;
-    			border-bottom-left-radius: 10px;
-    			border-top-left-radius: 10px;
-    			border-top-right-radius: 10px;
-			}			
-		</style>
-		<style type="text/css">
-      		button[class='Button']:hover {
-    			filter: brightness(70%);
-			}					
-			button[class='Button']:active {
-    			transform: scale(0.9);
-			}
-			input[type="submit"]:hover {
-    			filter: brightness(70%);
-			}					
-			input[type="submit"]:active {
-    			transform: scale(0.9);
-			}
-			input[type="submit"] {
-    			background-color: #460f75;
-    			color: #FFFFFF;
-    			transition: ease 0.2s;
-    			cursor: pointer;
-    			border-bottom-right-radius: 25px;
-    			border-bottom-left-radius: 25px;
-    			border-top-left-radius: 25px;
-    			border-top-right-radius: 25px;
-			}
-			input[type="text"] {
-				width: 5%;
-    			background-color: #ffffff;
-    			transition: ease 0.2s;
-    			cursor: pointer;
-    			border-bottom-right-radius: 25px;
-    			border-bottom-left-radius: 25px;
-    			border-top-left-radius: 25px;
-    			border-top-right-radius: 25px;
-				text-align: center;
-			}				
-    	</style>
-	</head>
-	<body bgcolor="#006565">
-		<div class='interItems'>
-			<h1>Controle com Arduino usando Python</h1>
-			<form action="/" style="padding: 20px" method="POST">
-        		<p>
-					Servomotor <input type="text" name="content" id="content">
-					<input type="submit" value="Alterar" id="button">
-				</p>
-				<p>
-					Temperatura <input type="text" name="content" id="content">
-				</p>
-    		</form>
-			<div class='interactiveButtons'>
-				<form action='#' method='POST'>
-					<button class='Button' onclick="ledOn()" name="on" value="on">On</button>
-					<button class='Button' onclick="ledOff()" name="off" value="off">Off</button> 
-					<button class='Button' onclick="Blink()" name="blink" value="blink">Blink</button>
-				</form>
-			</div>
-		</div>
-	</body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa Inteligente</title>
+  <link href="..\static\css\estilo.css" rel="stylesheet">
+</head>
+<body>
+<div class='interItems'>
+  <h1>Controle com Arduino usando Python</h1>
+  <form action="/" style="padding: 20px" method="POST">
+    <p title="Digite o ambiente (Sala, Cozinha, Quarto, Suite, Banheiro)!">Ambiente
+      <select name="controle" id="controle">
+        <option value="Sala">Sala</option>
+        <option value="Cozinha">Cozinha</option>
+        <option value="Quarto">Quarto</option>
+        <option value="Suite">Suite</option>
+        <option value="Banheiro">Banheiro</option>
+        <option value="Alarme Casa">Alarme Casa</option>
+      </select>
+      <br><br>
+      <input type="submit" name="val" value="ON" id="button">
+      <input type="submit" name="val" value="OFF" id="button1">
+    </p>
+    <p title="Portão">
+      Portão (0 a 100%) <input type="text" name="content" id="content1">
+      <input type="submit" name="val" value="Alterar" id="button2">
+    </p>
+    <p name="textolista">Lista de Dados na Tabela</p>
+  </form>
+  <form>
+    {% for list in contents %}
+      {% if list[1] == 'Alarme' %}
+        <p>{{ list[0] }} - {{ list[3] }}</p>
+      {% else %}
+        <p>{{ list[1] }} {{ list[0] }} - {{ list[3] }}</p>
+      {% endif %}
+    {% endfor%}
+  </form>
+</div>
+</body>
 </html>
