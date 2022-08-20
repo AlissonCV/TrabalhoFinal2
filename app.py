@@ -1,4 +1,4 @@
-import sqlite3
+import sqlite3, socket
 from flask import Flask, redirect, render_template, request, url_for
 from asyncio.windows_events import NULL
 from pickle import TRUE
@@ -6,6 +6,8 @@ from tkinter import *
 from pyfirmata import Arduino, SERVO
 
 #from test import *
+
+myip = socket.gethostbyname_ex(socket.gethostname())[2][1]
 
 app = Flask(__name__)
 
@@ -99,4 +101,4 @@ listaAmbientes = [
 ]
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run(host=myip, debug=True)
